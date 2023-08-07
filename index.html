@@ -9,21 +9,29 @@
 </head>
 <body>
 
-    <form class="row g-3 pt-5 mx-2">
+    <form class="row g-3 pt-5 mx-5">        
         
-        <h2 id="cityHeading">Search for a City:</h2>
+        <div class="card" style="width: 30rem;">
+            <h2 id="cityHeading">Search for a City:</h2>
+                <div class="card-body">
+                
+            
+                    <div class="col-md-6 pb-3">
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+        </div>
 
-        <div class="col-md-6">
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        
-        
-          
-        
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-      </form>
+    </form>
+
+   
     
     <script src="./script.js"></script>
 </body>
