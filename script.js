@@ -2,8 +2,11 @@ console.log("Carlos")
 console.log("Khalid")
 console.log("Dylan")
 
-let holidayList = document.querySelector("option");
+let holidayList = document.querySelector("option").value;
 let selectHoliday = document.querySelector("#select-holiday")
+let dateEl = document.querySelector("p")
+
+
 
 
 fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
@@ -17,6 +20,7 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
 
         for (let i = 0; i < result.length; i++) {
             let hName = result[i].name;
+            let hDate = result[i].date;
             
             let holidayEl = document.createElement("option");
 
@@ -26,12 +30,14 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
             console.log(holidayEl);
 
             selectHoliday.append(holidayEl);
+
+            localStorage.setItem("holiday", JSON.stringify(hName))
+            localStorage.setItem("date", JSON.stringify(hDate))
             
         }
   
   })
 
-// holidayList.onclick(function (event) {
-    
-//     if (event)
-// })
+  let holidayInfo = JSON.parse(localStorage.getItem("holiday", "date"));
+
+  console.log(holidayInfo);
