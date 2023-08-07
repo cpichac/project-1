@@ -26,14 +26,14 @@ console.log("Dylan")
 
 
 //working
-// fetch("http://api.citybik.es/v2/networks")
-// .then(function(response){
+fetch("http://api.citybik.es/v2/networks")
+.then(function(response){
     
-// return response.json()     
-// })
-// .then(function (anime) {
-//     console.log(anime)
-// })
+return response.json()     
+})
+.then(function (anime) {
+    console.log(anime)
+})
 
 
 
