@@ -3,53 +3,31 @@ console.log("Khalid")
 console.log("Dylan")
 
 
-// fetch("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1")
-// .then(function(response){
-    
-// return response.json()     
-// })
-// .then(function (dogFact) {
-//     console.log(dogFact)
-// })
 
-
-//pending
-// fetch("http://api.anidb.net:9001/httpapi?request=anime")
-// .then(function(response){
-    
-// return response.json()     
-// })
-// .then(function (anime) {
-//     console.log(anime)
-// })
-
+let citySearch = document.querySelector("#inputCity")
 
 
 //working api for city bikes.. (Khalid)
 //this is the 
-fetch("http://api.citybik.es/v2/networks")
-.then(response => response.json())
-.then(citiesFound => {
-    let cityFound = citiesFound[0];
-    console.log(cityFound)
-    // return fetch(`http://api.citybik.es/v2/networks`)
+citySearch.addEventListener("click", function(event){
 
-    for (let i = 0; i < citiesFound.length; i++) {
-        let cityInput = document.querySelector("#cityInput")
-        
-    }
+    fetch("http://api.citybik.es/v2/networks")
+    .then(response => response.json())
+    .then(data=> {
+
+        console.log(data.networks[0])
 
 
 
 
 
 
-// return response.json()     
-// })
-// .then(function () {
-//     console.log()
+    // return response.json()     
+    // })
+    // .then(function () {
+    //     console.log()
+    })
 })
-
 
 
 // fetch("https://api.chess.com/pub/player/hikaru")
