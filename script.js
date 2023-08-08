@@ -25,6 +25,7 @@ let dateEl = document.querySelector("p")
 
 
 
+//(Khalid) The art musuem code begins here
 
 fetch("https://api.artic.edu/api/v1/artworks")
 .then(response => response.json())
@@ -36,6 +37,8 @@ return response.json()
 .then(function (artList) {
     console.log(artList)
 })
+
+//(Khalid) The art musuem code ends here
 
 
 
