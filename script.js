@@ -30,18 +30,23 @@ let dateEl = document.querySelector("p")
     
 
     fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
-    .then(response => response.json())
+        .then(response => response.json())
 
-    .then(stylesFound => {
-        let styleFound = stylesFound[0];
-        console.log(styleFound)
+        .then(stylesFound => {
+            let styleFound = stylesFound[0];
+            console.log(styleFound)
 
 
-        
-        return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
+            // for (let i = 0; i < styleFound.length; i++) {
+                    
+            //     styleTitle = styleFound[i].data.title
+
+            // }
+
+            return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
     })
-    .then(response => response.json())
-    .then(data =>{console.log(data)})
+        .then(response => response.json())
+        .then(data =>{console.log(data)})
 
 
 
