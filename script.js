@@ -59,9 +59,6 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
             console.log(holidayEl);
 
             selectHoliday.append(holidayEl);
-
-            
-
             
         }
 
