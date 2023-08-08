@@ -15,8 +15,8 @@ return response.json()
 })
 // Sets text content of display span
 .then(function (sunData) {
-    let sunriseData = (sunData.results.sunrise);
-    let sunsetData =  (sunData.results.sunset);
+    let sunriseData = sunData.results.sunrise;
+    let sunsetData =  sunData.results.sunset;
     riseDisplay.textContent = sunriseData;
     setDisplay.textContent = sunsetData;
 })
