@@ -27,26 +27,45 @@ let dateEl = document.querySelector("p")
 
 //(Khalid) The art musuem code begins here
 
-    
-
-    fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
-        .then(response => response.json())
-
-        .then(stylesFound => {
-            let styleFound = stylesFound[0];
-            console.log(styleFound)
 
 
-            // for (let i = 0; i < styleFound.length; i++) {
-                    
-            //     styleTitle = styleFound[i].data.title
+fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
+    .then(response => response.json())
 
-            // }
+    .then(stylesFound => {
+        let styleFound = stylesFound[0];
+        console.log(styleFound)
 
-            return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
+
+        // for (let i = 0; i < styleFound.length; i++) {
+
+        //     styleTitle = styleFound[i].data.title
+
+        // }
+
+        return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     })
-        .then(response => response.json())
-        .then(data =>{console.log(data)})
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data)
+
+        for (let i = 0; i < data.data.length; i++) {
+            
+            console.log(i)
+            console.log(typeof data.data[i].title)
+            
+            let listItem = document.createElement("li")
+            let anchorItem = document.createElement("a")
+            anchorItem.classList.add("dropdown-item")
+            anchorItem.innerHTML = data.data[i].title
+
+            listItem.appendChild(anchorItem)
+            document.getElementById("dropDown").appendChild(listItem)
+        }
+
+
+    })
 
 
 
@@ -55,18 +74,18 @@ let dateEl = document.querySelector("p")
 
 
 fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
-  .then(response => response.json())
-  .then(result => {
-    let holidayName = result[0].name;
-    let holidayDate = result[0].date;
+    .then(response => response.json())
+    .then(result => {
+        let holidayName = result[0].name;
+        let holidayDate = result[0].date;
 
-    console.log(holidayDate);
-    console.log(holidayName);
+        console.log(holidayDate);
+        console.log(holidayName);
 
         for (let i = 0; i < result.length; i++) {
             let hName = result[i].name;
             let hDate = result[i].date;
-            
+
             let holidayEl = document.createElement("option");
 
             holidayEl.setAttribute("value", hName);
@@ -78,11 +97,11 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
 
             // localStorage.setItem("holiday", JSON.stringify(hName))
             // localStorage.setItem("date", JSON.stringify(hDate))
-            
+
         }
-  
-  })
 
-  let holidayInfo = JSON.parse(localStorage.getItem("holiday", "date"));
+    })
 
-  console.log(holidayInfo);
+let holidayInfo = JSON.parse(localStorage.getItem("holiday", "date"));
+
+console.log(holidayInfo);
