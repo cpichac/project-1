@@ -4,7 +4,7 @@ console.log("Dylan")
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
 // Fetches and grabs sun data
-fetch("https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400")
+fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
 .then(function(response){
 
 return response.json()     
