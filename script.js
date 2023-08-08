@@ -4,38 +4,20 @@ console.log("Dylan")
 
 
 
-let citySearch = document.querySelector("#inputCity")
-
-
-//working api for city bikes.. (Khalid)
-//this is the 
-citySearch.addEventListener("click", function(event){
-
-    fetch("http://api.citybik.es/v2/networks")
-    .then(response => response.json())
-    .then(data=> {
-
-        console.log(data.networks[0])
 
 
 
 
 
 
-    // return response.json()     
-    // })
-    // .then(function () {
-    //     console.log()
-    })
-})
 
+fetch("https://api.artic.edu/api/v1/artworks")
+.then(response => response.json())
 
-// fetch("https://api.chess.com/pub/player/hikaru")
-// .then(function(response){
+.then(function(response){
     
-// return response.json()     
-// })
-// .then(function (anime) {
-//     console.log(anime)
-// })
-
+return response.json()     
+})
+.then(function (artList) {
+    console.log(artList)
+})
