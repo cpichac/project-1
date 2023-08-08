@@ -9,24 +9,32 @@
 </head>
 
 <body>
-    <div>
-        <h1>When will the sun be out today?</h1>
-    </div>
-    <div>
-        <select name="select-city" id="select-city">
-            
-        </select>
-    </div>
+<!-- Main sun section -->
+    <section id="sun-data">
+        <div>
+            <h1>When will the sun be out today?</h1>
+        </div>
+        <!-- input lat + long -->
+        <div>
+            <h3>Enter Latitude:</h3>
+            <input id="Latitude" type="text">
+            <h3>Enter Longitude:</h3>
+            <input id="Longitude" type="text">
+        </div>
+        <br>
+        <button id="sunButton">Submit</button>
+        <!-- Display card -->
+        <card id="sunCard">
+            <h2>Sunrise happens at: </h2>
+            <span id="sunriseTime"></span>
+            <h2>Sunset happens at: </h2>
+            <span id="sunsetTime"></span>
+        </card>
+    </section>
 
-    <card id="sunCard">
-        <h2>Sunrise happens at: </h2>
-        <span id="sunriseTime"></span>
-        <h2>Sunset happens at: </h2>
-        <span id="sunsetTime"></span>
-    </card>
     <head>
         <h1>
-            Bike Ride Accross the Sunset/Sunrise 
+            Bike Ride Accross the Sunset/Sunrise
         </h1>
         <nav>
 
@@ -45,7 +53,8 @@
 
         </u>
     </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./script.js"></script>
 </body>
 
