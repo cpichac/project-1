@@ -1,18 +1,18 @@
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
 // Fetches and grabs sun data
-fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
-.then(function(response){
+// fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
+// .then(function(response){
 
-return response.json()     
-})
+// return response.json()     
+// })
 // Sets text content of display span
-.then(function (sunData) {
-    let sunriseData = sunData.results.sunrise;
-    let sunsetData =  sunData.results.sunset;
-    riseDisplay.textContent = sunriseData;
-    setDisplay.textContent = sunsetData;
-})
+// .then(function (sunData) {
+//     let sunriseData = sunData.results.sunrise;
+//     let sunsetData =  sunData.results.sunset;
+//     riseDisplay.textContent = sunriseData;
+//     setDisplay.textContent = sunsetData;
+// })
 
 let holidayList = document.querySelector("option").value;
 let selectHoliday = document.querySelector("#select-holiday")
@@ -31,15 +31,15 @@ fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
 .then(response => response.json())
 
 .then(stylesFound => {
-    let stylesFound = stylesFound[0];
-    console.log(stylesFound)
+    let styleFound = stylesFound[0];
+    console.log(styleFound)
 
 
     
     return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
 })
 .then(response => response.json())
-.then(data =>)
+.then(data =>{console.log(data)})
 
 //(Khalid) The art musuem code ends here
 
@@ -67,8 +67,8 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
 
             selectHoliday.append(holidayEl);
 
-            localStorage.setItem("holiday", JSON.stringify(hName))
-            localStorage.setItem("date", JSON.stringify(hDate))
+            // localStorage.setItem("holiday", JSON.stringify(hName))
+            // localStorage.setItem("date", JSON.stringify(hDate))
             
         }
   
