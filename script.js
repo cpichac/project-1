@@ -1,35 +1,35 @@
 
-// //Dylan's Sunset code
-// let riseDisplay = document.querySelector("#sunriseTime")
-// let setDisplay = document.querySelector("#sunsetTime")
-// // Fetches and grabs sun data
-// fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
-// .then(function(response){
+//Dylan's Sunset code
+let riseDisplay = document.querySelector("#sunriseTime")
+let setDisplay = document.querySelector("#sunsetTime")
+// Fetches and grabs sun data
+fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
+.then(function(response){
 
-// return response.json()     
-// })
-//     // Sets text content of display span
-// .then(function (sunData) {
-//     let sunriseData = sunData.results.sunrise;
-//     let sunsetData =  sunData.results.sunset;
-//     riseDisplay.textContent = sunriseData;
-//     setDisplay.textContent = sunsetData;
-// })
+return response.json()     
+})
+    // Sets text content of display span
+.then(function (sunData) {
+    let sunriseData = sunData.results.sunrise;
+    let sunsetData =  sunData.results.sunset;
+    riseDisplay.textContent = sunriseData;
+    setDisplay.textContent = sunsetData;
+})
 
-// //Khalid's Art Museum code
+//Khalid's Art Museum code
 
 
 
-// fetch("https://api.artic.edu/api/v1/artworks")
-// .then(response => response.json())
+fetch("https://api.artic.edu/api/v1/artworks")
+.then(response => response.json())
 
-// .then(function(response){
+.then(function(response){
     
-// return response.json()     
-// })
-// .then(function (artList) {
-//     console.log(artList)
-// })
+return response.json()     
+})
+.then(function (artList) {
+    console.log(artList)
+})
 
 //Carlos' Holiday Code
 
