@@ -21,6 +21,24 @@ let dateEl = document.querySelector("p")
 
 
 
+
+
+
+
+
+fetch("https://api.artic.edu/api/v1/artworks")
+.then(response => response.json())
+
+.then(function(response){
+    
+return response.json()     
+})
+.then(function (artList) {
+    console.log(artList)
+})
+
+
+
 fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
   .then(response => response.json())
   .then(result => {
