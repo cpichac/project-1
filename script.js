@@ -27,16 +27,19 @@ let dateEl = document.querySelector("p")
 
 //(Khalid) The art musuem code begins here
 
-fetch("https://api.artic.edu/api/v1/artworks")
+fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
 .then(response => response.json())
 
-.then(function(response){
+.then(stylesFound => {
+    let stylesFound = stylesFound[0];
+    console.log(stylesFound)
+
+
     
-return response.json()     
+    return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
 })
-.then(function (artList) {
-    console.log(artList)
-})
+.then(response => response.json())
+.then(data =>)
 
 //(Khalid) The art musuem code ends here
 
