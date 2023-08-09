@@ -21,11 +21,7 @@ function displaySunData() {
 
     // console.log(`lat:${lat} lng:${lng}`)
     fetch(`https://api.sunrise-sunset.org/json?lat=${lat.value}&lng=${lng.value}`)
-        .then(function (response) {
-
-
-            // Sets text content of display span
-        })
+    .then(response => response.json())
         .then(function (sunData) {
             let sunriseData = sunData.results.sunrise;
             let sunsetData = sunData.results.sunset;
@@ -76,12 +72,13 @@ fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
             console.log(i)
             console.log(typeof data.data[i].title)
 
-            let listItem = document.createElement("li")
-            let anchorItem = document.createElement("a")
-            anchorItem.classList.add("dropdown-item")
-            anchorItem.innerHTML = data.data[i].title
+            let listItem = document.createElement("option")
+            
+            
+            listItem.value = data.data[i].title
+            listItem.textContent = data.data[i].title
 
-            listItem.appendChild(anchorItem)
+ 
             document.getElementById("dropDown").appendChild(listItem)
         }
 
