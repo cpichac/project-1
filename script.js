@@ -1,12 +1,36 @@
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
+let sunButton = document.querySelector("#sunButton")
+let lat = document.querySelector("#Latitude")
+let lng = document.querySelector("#Longitude")
+
+// Function to call on click
+function displaySunData(){
 // Fetches and grabs sun data
+
+// console.log(`lat:${lat} lng:${lng}`)
+fetch(`https://api.sunrise-sunset.org/json?lat=${lat.value}&lng=${lng.value}`)
+.then(function(response){
+
 // fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
 // .then(function(response){
+>>
 
 // return response.json()     
 // })
 // Sets text content of display span
+
+.then(function (sunData) {
+    let sunriseData = sunData.results.sunrise;
+    let sunsetData =  sunData.results.sunset;
+    riseDisplay.textContent = sunriseData;
+    setDisplay.textContent = sunsetData;
+})
+}
+// Event listener to trigger function
+sunButton.addEventListener("click", displaySunData)
+
+
 // .then(function (sunData) {
 //     let sunriseData = sunData.results.sunrise;
 //     let sunsetData =  sunData.results.sunset;
@@ -14,9 +38,13 @@ let setDisplay = document.querySelector("#sunsetTime")
 //     setDisplay.textContent = sunsetData;
 // })
 
+
 let holidayList = document.querySelector("option").value;
 let selectHoliday = document.querySelector("#select-holiday")
 let dateEl = document.querySelector("p")
+
+
+fetch("https://api.artic.edu/api/v1/artworks")
 
 
 
@@ -28,6 +56,7 @@ let dateEl = document.querySelector("p")
 //(Khalid) The art musuem code begins here
 
 fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
+
 .then(response => response.json())
 
 .then(stylesFound => {
