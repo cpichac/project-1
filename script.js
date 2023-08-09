@@ -25,13 +25,8 @@ sunButton.addEventListener("click", displaySunData)
 
 
 //(Khalid) The art musuem code begins here
-// fetch("https://api.artic.edu/api/v1/artworks")
-//     .then(response => response.json())
-//     .then(function (artList) {
-//         console.log(artList)
-//     })
 
-// fetch("https://api.artic.edu/api/v1/artworks")
+
 
 fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     .then(response => response.json())
@@ -71,6 +66,9 @@ fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
 
 
     })
+    
+//(Khalid) The art musuem code ends here
+
 
 
 //Carlos' Holiday Code
