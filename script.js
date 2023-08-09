@@ -7,13 +7,19 @@ let lng = document.querySelector("#Longitude")
 // Function to call on click
 function displaySunData(){
 // Fetches and grabs sun data
+
 // console.log(`lat:${lat} lng:${lng}`)
 fetch(`https://api.sunrise-sunset.org/json?lat=${lat.value}&lng=${lng.value}`)
 .then(function(response){
 
-return response.json()     
-})
+// fetch("https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lng)
+// .then(function(response){
+>>
+
+// return response.json()     
+// })
 // Sets text content of display span
+
 .then(function (sunData) {
     let sunriseData = sunData.results.sunrise;
     let sunsetData =  sunData.results.sunset;
@@ -25,20 +31,46 @@ return response.json()
 sunButton.addEventListener("click", displaySunData)
 
 
+// .then(function (sunData) {
+//     let sunriseData = sunData.results.sunrise;
+//     let sunsetData =  sunData.results.sunset;
+//     riseDisplay.textContent = sunriseData;
+//     setDisplay.textContent = sunsetData;
+// })
+
+
 let holidayList = document.querySelector("option").value;
 let selectHoliday = document.querySelector("#select-holiday")
 let dateEl = document.querySelector("p")
 
+
 fetch("https://api.artic.edu/api/v1/artworks")
+
+
+
+
+
+
+
+
+//(Khalid) The art musuem code begins here
+
+fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
+
 .then(response => response.json())
 
-.then(function(response){
+.then(stylesFound => {
+    let styleFound = stylesFound[0];
+    console.log(styleFound)
+
+
     
-return response.json()     
+    return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")     
 })
-.then(function (artList) {
-    console.log(artList)
-})
+.then(response => response.json())
+.then(data =>{console.log(data)})
+
+//(Khalid) The art musuem code ends here
 
 
 
@@ -64,8 +96,8 @@ fetch("https://date.nager.at/api/v3/publicholidays/2023/AT")
 
             selectHoliday.append(holidayEl);
 
-            localStorage.setItem("holiday", JSON.stringify(hName))
-            localStorage.setItem("date", JSON.stringify(hDate))
+            // localStorage.setItem("holiday", JSON.stringify(hName))
+            // localStorage.setItem("date", JSON.stringify(hDate))
             
         }
   
