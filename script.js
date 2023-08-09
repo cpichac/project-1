@@ -2,15 +2,6 @@
 //Dylan's Sunset code
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
-
-
-fetch("https://api.artic.edu/api/v1/artworks")
-    .then(response => response.json())
-    .then(function (artList) {
-        console.log(artList)
-    })
-
-
 let sunButton = document.querySelector("#sunButton")
 let lat = document.querySelector("#Latitude")
 let lng = document.querySelector("#Longitude")
@@ -29,22 +20,18 @@ function displaySunData() {
             setDisplay.textContent = sunsetData;
         })
 }
-
 // Event listener to trigger function
 sunButton.addEventListener("click", displaySunData)
 
-fetch("https://api.artic.edu/api/v1/artworks")
-
-
-
-
-
-
-
 
 //(Khalid) The art musuem code begins here
+// fetch("https://api.artic.edu/api/v1/artworks")
+//     .then(response => response.json())
+//     .then(function (artList) {
+//         console.log(artList)
+//     })
 
-
+// fetch("https://api.artic.edu/api/v1/artworks")
 
 fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     .then(response => response.json())
@@ -128,18 +115,14 @@ function holidays() {
         })
     }
 
-
-    selectHoliday.addEventListener("change", function () {
-
-        let selectedOption = selectHoliday.value;
-
-        localStorage.setItem('selectOption', selectedOption);
-
-
-    });
-
-
-
-
-
-
+    // Retrieve the existing array from local storage or create a new one
+    let selectedOptionsArray = JSON.parse(localStorage.getItem('selectedOptions')) || [];
+        selectHoliday.addEventListener("change", function() {
+            let selectedOption = selectHoliday.value;
+            // Add the new selected option to the array
+            selectedOptionsArray.push(selectedOption);
+            // Store the updated array in local storage
+            localStorage.setItem('selectedOptions', JSON.stringify(selectedOptionsArray));
+        });
+    function lastSelectedHoliday() {
+    }
