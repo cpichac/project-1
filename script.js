@@ -12,7 +12,7 @@ function displaySunData() {
 
     // console.log(`lat:${lat} lng:${lng}`)
     fetch(`https://api.sunrise-sunset.org/json?lat=${lat.value}&lng=${lng.value}`)
-    .then(response => response.json())
+        .then(response => response.json())
         .then(function (sunData) {
             let sunriseData = sunData.results.sunrise;
             let sunsetData = sunData.results.sunset;
@@ -40,18 +40,38 @@ fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
         }
     });
 
-const buttonDrop = document.getElementById("buttonDrop");
 
-buttonDrop.addEventListener("click", function() {
-    const selectedValue = document.getElementById("dropDown").value;
+window.addEventListener("load", function () {
+    const storedValuesJSON = localStorage.getItem("saved-list");
+    if (storedValuesJSON) {
+        const storedValues = JSON.parse(storedValuesJSON);
+        if (Array.isArray(storedValues)) {
+            storedValues.forEach(function (value) {
+                let selectedParagraph = document.createElement("p");
+                selectedParagraph.textContent = value;
+                stylesFound.appendChild(selectedParagraph);
+            });
+        }
+    }
+});
 
-    // Create a new paragraph element to display the selected value
+buttonDrop.addEventListener("click", function (event) {
+    const selectedValue = dropDown.value;
+
     let selectedParagraph = document.createElement("p");
     selectedParagraph.textContent = selectedValue;
 
-    // Append the paragraph to a specific element on the page
-    document.getElementById("stylesFound").appendChild(selectedParagraph);
+    // Load existing stored values
+    const storedValuesJSON = localStorage.getItem("saved-list");
+    const storedValues = storedValuesJSON ? JSON.parse(storedValuesJSON) : [];
 
+    // Add the new value to the array
+    storedValues.push(selectedValue);
+
+    // Store the updated array in local storage
+    localStorage.setItem("saved-list", JSON.stringify(storedValues));
+
+    stylesFound.appendChild(selectedParagraph);
 });
 //(Khalid) The art musuem code ends here
 
@@ -97,16 +117,16 @@ function holidays() {
             }
             // let hDate = result[i].date;
         })
-    }
+}
 
-    // Retrieve the existing array from local storage or create a new one
-    let selectedOptionsArray = JSON.parse(localStorage.getItem('selectedOptions')) || [];
-        selectHoliday.addEventListener("change", function() {
-            let selectedOption = selectHoliday.value;
-            // Add the new selected option to the array
-            selectedOptionsArray.push(selectedOption);
-            // Store the updated array in local storage
-            localStorage.setItem('selectedOptions', JSON.stringify(selectedOptionsArray));
-        });
-    function lastSelectedHoliday() {
-    }
+// Retrieve the existing array from local storage or create a new one
+let selectedOptionsArray = JSON.parse(localStorage.getItem('selectedOptions')) || [];
+selectHoliday.addEventListener("change", function () {
+    let selectedOption = selectHoliday.value;
+    // Add the new selected option to the array
+    selectedOptionsArray.push(selectedOption);
+    // Store the updated array in local storage
+    localStorage.setItem('selectedOptions', JSON.stringify(selectedOptionsArray));
+});
+function lastSelectedHoliday() {
+}
