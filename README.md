@@ -59,9 +59,9 @@ Our group used everything that we've learned so far in the preceeding six module
 
 * Process: Technologies? Tasks/Roles? Challenges? Successes?
 
-* Demo: Show and tell
+* Demo: Show and Tell
 
-* Directions for Future DEvelopment
+* Directions for Future Development
 
 * Links to deployed application and Github repository
 
