@@ -51,7 +51,7 @@ Our group used everything that we've learned so far in the preceeding six module
 
 * We have a quality README with a non-generic name, description, technologies used, screenshot, and link to deployed application
 
-## Presentaion Requirements
+## Presentation Requirements
 
 * Elevator pitch: one minute description
 
