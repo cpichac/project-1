@@ -67,3 +67,18 @@ Our group used everything that we've learned so far in the preceeding six module
 
 ## Screenshot
 
+![Alt text](image.png)
+
+![Alt text](image-1.png)
+
+* View Screenshots in the preview
+
+### Links
+
+Repository below
+
+https://github.com/cpichac/project-1
+
+Deployed page below
+
+https://cpichac.github.io/project-1/
