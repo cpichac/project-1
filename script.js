@@ -1,4 +1,3 @@
-
 //Dylan's Sunset code
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
@@ -6,13 +5,15 @@ let sunButton = document.querySelector("#sunButton")
 let lat = document.querySelector("#Latitude")
 let lng = document.querySelector("#Longitude")
 
+dayjs.extend(window.dayjs_plugin_customParseFormat)
+
 // Function to call on click
 function displaySunData() {
     // Fetches and grabs sun data
 
     // console.log(`lat:${lat} lng:${lng}`)
     fetch(`https://api.sunrise-sunset.org/json?lat=${lat.value}&lng=${lng.value}`)
-    .then(response => response.json())
+        .then(response => response.json())
         .then(function (sunData) {
             let sunriseData = sunData.results.sunrise;
             let sunsetData = sunData.results.sunset;
@@ -25,52 +26,56 @@ sunButton.addEventListener("click", displaySunData)
 
 
 //(Khalid) The art musuem code begins here
-fetch("https://api.artic.edu/api/v1/artworks")
-    .then(response => response.json())
-    .then(function (artList) {
-        console.log(artList)
-    })
-
-fetch("https://api.artic.edu/api/v1/artworks")
 
 fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     .then(response => response.json())
-
-    .then(stylesFound => {
-        let styleFound = stylesFound[0];
-        console.log(styleFound)
-
-
-        for (let i = 0; i < styleFound.length; i++) {
-
-            styleTitle = styleFound[i].data.title
-
-        }
-
-        return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
-    })
-    .then(response => response.json())
     .then(data => {
-
-        console.log(data)
+        // Populate the dropdown list
+        const dropDown = document.getElementById("dropDown");
 
         for (let i = 0; i < data.data.length; i++) {
-
-            console.log(i)
-            console.log(typeof data.data[i].title)
-
-            let listItem = document.createElement("option")
-            
-            
-            listItem.value = data.data[i].title
-            listItem.textContent = data.data[i].title
-
- 
-            document.getElementById("dropDown").appendChild(listItem)
+            let listItem = document.createElement("option");
+            listItem.value = data.data[i].title;
+            listItem.textContent = data.data[i].title;
+            dropDown.appendChild(listItem);
         }
+    });
 
 
-    })
+window.addEventListener("load", function () {
+    const storedValuesJSON = localStorage.getItem("saved-list");
+    if (storedValuesJSON) {
+        const storedValues = JSON.parse(storedValuesJSON);
+        if (Array.isArray(storedValues)) {
+            storedValues.forEach(function (value) {
+                let selectedParagraph = document.createElement("p");
+                selectedParagraph.textContent = value;
+                stylesFound.appendChild(selectedParagraph);
+            });
+        }
+    }
+});
+
+buttonDrop.addEventListener("click", function (event) {
+    const selectedValue = dropDown.value;
+
+    let selectedParagraph = document.createElement("p");
+    selectedParagraph.textContent = selectedValue;
+
+    // Load existing stored values
+    const storedValuesJSON = localStorage.getItem("saved-list");
+    const storedValues = storedValuesJSON ? JSON.parse(storedValuesJSON) : [];
+
+    // Add the new value to the array
+    storedValues.push(selectedValue);
+
+    // Store the updated array in local storage
+    localStorage.setItem("saved-list", JSON.stringify(storedValues));
+
+    stylesFound.appendChild(selectedParagraph);
+});
+//(Khalid) The art musuem code ends here
+
 
 
 //Carlos' Holiday Code
