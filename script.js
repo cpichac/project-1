@@ -1,10 +1,11 @@
-
 //Dylan's Sunset code
 let riseDisplay = document.querySelector("#sunriseTime")
 let setDisplay = document.querySelector("#sunsetTime")
 let sunButton = document.querySelector("#sunButton")
 let lat = document.querySelector("#Latitude")
 let lng = document.querySelector("#Longitude")
+
+dayjs.extend(window.dayjs_plugin_customParseFormat)
 
 // Function to call on click
 function displaySunData() {
