@@ -25,13 +25,13 @@ sunButton.addEventListener("click", displaySunData)
 
 
 //(Khalid) The art musuem code begins here
-// fetch("https://api.artic.edu/api/v1/artworks")
-//     .then(response => response.json())
-//     .then(function (artList) {
-//         console.log(artList)
-//     })
+fetch("https://api.artic.edu/api/v1/artworks")
+    .then(response => response.json())
+    .then(function (artList) {
+        console.log(artList)
+    })
 
-// fetch("https://api.artic.edu/api/v1/artworks")
+fetch("https://api.artic.edu/api/v1/artworks")
 
 fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     .then(response => response.json())
@@ -41,11 +41,11 @@ fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
         console.log(styleFound)
 
 
-        // for (let i = 0; i < styleFound.length; i++) {
+        for (let i = 0; i < styleFound.length; i++) {
 
-        //     styleTitle = styleFound[i].data.title
+            styleTitle = styleFound[i].data.title
 
-        // }
+        }
 
         return fetch("https://api.artic.edu/api/v1/artwork-types?limit=23")
     })
